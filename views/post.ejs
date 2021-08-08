@@ -1,0 +1,42 @@
+<%- include("partials/header") -%> 
+<%- include("partials/navbar") -%> 
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <h5 class="card-title"><%= post.title %></h5>
+                </div>
+                <div class="col">
+                    <p class="card-text float-end"><%= format(post.created_at) %></p>
+                </div>
+            </div>
+            <p class="card-text"><%= post.body%></p>
+            <p class="card-text">Posted by: <%= post.username %></p>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-3">
+        <div class="col">
+            <h3><%= answers.length %> Answers</h3>
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary float-end" href="/answer/<%= post.id %> ">Post Answer</a>
+        </div>
+    </div>
+
+    <% for(let x = answers.length -1; x >=0; x--) { %> 
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text float-end"><%= format(answers[x].created_at) %></p>
+                    </div>
+                </div>
+                <p class="card-text"><%= answers[x].body %></p>
+                <p class="card-text">Answer by: <%= answers[x].username %></p>
+            </div>
+        </div>
+        <% } %>
+</div>
+<%- include("partials/footer") -%> 

@@ -1,0 +1,24 @@
+<%- include("partials/header") -%> 
+<%- include("partials/navbar") -%>
+<body>
+<div class="container mt-5 h-100">
+    <h1>Ask a question</h1>
+    <div class="card">
+        <div class="card-body">
+            <form action="/compose" method="post">
+                <div class="mb-3">
+                    <label for="postTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="postTitle" name="postTitle" placeholder="e.g. Is there an R function for finding the index of an element in a vector" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="postBody" class="form-label">Body</label>
+                    <textarea type="text" class="form-control" id="postBody" name="postBody" rows="3" required></textarea>
+                  </div>
+                  <div>
+                      <button class="btn btn-secondary" type="submit">Post Question</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer") -%> 

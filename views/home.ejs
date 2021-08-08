@@ -1,0 +1,38 @@
+<%- include("partials/header") -%> 
+<%- include("partials/navbar") -%>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1>Welcom 
+                <% if (user) {%> 
+                <%= user.username %>  
+                <% } %> 
+                !
+            </h1>
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary float-end" href="/compose">Ask Question</a>
+        </div>
+    </div>
+
+    <%- include("partials/message") -%> 
+
+    <% for(let x = posts.length -1; x >=0; x--) { %> 
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <h5 class="card-title"><%= posts[x].title %></h5>
+                </div>
+                <div class="col">
+                    <p class="card-text float-end"><%= format(posts[x].created_at) %></p>
+                </div>
+            </div>
+            <p class="card-text"><%= posts[x].body.substring(0,100)+"..." %> <a class="stretched-link" href="/posts/<%= posts[x].title %>">Read more</a></p>
+            <p class="card-text">Posted by: <%= posts[x].username %></p>
+        </div>
+    </div>
+    <% } %>
+</div>
+<%- include("partials/footer") -%> 

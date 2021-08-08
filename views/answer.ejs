@@ -1,0 +1,20 @@
+<%- include("partials/header") -%> 
+<%- include("partials/navbar") -%> 
+<div class="container mt-5">
+    <h1>Write Answer</h1>
+    <div class="card">
+        <div class="card-body">
+            <form action="/answer" method="post">
+                  <div class="mb-3">
+                    <label for="body" class="form-label">Body</label>
+                    <textarea type="text" class="form-control" id="body" name="body" rows="3" required></textarea>
+                  </div>
+                  <input class="form-control d-none" type="text" name="postId" id="postId" value="<%= postId %>">
+                  <div>
+                      <button class="btn btn-secondary" type="submit">Post Answer</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer") -%> 
